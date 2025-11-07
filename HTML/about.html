@@ -1,11 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Web - Acerca de nosotros</title>
-</head>
-<body>
-    
-</body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/CSS/styles.css">
+        <link rel="stylesheet" href="/CSS/estilos.css">
+        <title>Contacto | The Meal DB</title>
+    </head>
+    <body>
+        <header class="index-header">
+            <nav class="index-navegation">
+                <a href="index.html" class="site-title-link">Recetas del Mundo</a>
+                <ul class="index-nav-list">
+                    <li class="index-nav-item"><a href="./index.html" class="index-nav-link">Inicio</a></li>
+                    <li class="index-nav-item"><a href="./contacto.html" class="index-nav-link">Contacto</a></li>
+                    <li class="index-nav-item"><a href="./about.html" class="index-nav-link">Acerca de nosotros</a></li>
+                </ul>
+        </header>
+
+        <main>
+            <h1 class="index-page-title">Acerca de Nosotros</h1>
+
+    <section class="index-content">
+        <p>
+            Bienvenidos a <strong>Delicias del Mundo</strong>, una página dedicada a compartir y descubrir recetas de cocina de todo tipo. 
+            Nuestro objetivo es ofrecer una experiencia sencilla, visual y atractiva para que cualquier persona pueda encontrar 
+            inspiración culinaria de manera rápida y práctica.
+        </p>
+
+        <h2>Nuestro Equipo</h2>
+        <p>Somos un grupo de estudiantes. Cada integrante tuvo un rol fundamental en la creación del sitio:</p>
+
+        <ul>
+            <li><strong>Facundo</strong> – <em>Desarrollador de la Página de Inicio</em><br>
+                Se encargó de construir la estructura principal del sitio, definiendo la navegación general y el diseño base que unifica todas las secciones.
+            </li>
+            <li><strong>Hugo</strong> – <em>Desarrollador de la Página de Contacto</em><br>
+                Diseñó y programó el formulario de contacto, cuidando la accesibilidad, validación de datos y coherencia visual.
+            </li>
+            <li><strong>Eros</strong> – <em>Desarrollador de la Página Acerca de Nosotros</em><br>
+                Redactó y diseñó esta sección, enfocándose en reflejar la identidad del grupo y la integración técnica del proyecto.
+            </li>
+        </ul>
+
+        <h2>Temática del Proyecto</h2>
+        <p>
+            La temática elegida es <strong>recetas de cocina internacionales</strong>, ya que consideramos que la gastronomía es una excelente forma de conectar culturas y fomentar la creatividad. 
+            El sitio está pensado para que el usuario pueda buscar, visualizar y aprender recetas de manera dinámica, con un diseño moderno y adaptable.
+        </p>
+
+        <h2>Decisiones de Diseño</h2>
+        <p>
+            El diseño se basa en una combinación de colores vivos y contrastantes, buscando reflejar la energía y diversidad de la cocina.
+        </p>
+        <ul>
+            <li>Se usaron dos paletas de variables CSS para mantener coherencia entre secciones, destacando tonos <strong>rojos (#e63946)</strong> y <strong>azules (#0300ca)</strong>.</li>
+            <li>La tipografía <strong>Inter</strong> y <strong>Poppins</strong> brinda legibilidad y modernidad.</li>
+            <li>Los fondos con imágenes de comidas y los efectos de sombra aportan profundidad visual.</li>
+            <li>El diseño es totalmente <strong>responsive</strong>, adaptándose a distintos tamaños de pantalla.</li>
+        </ul>
+
+        <h2>API Utilizada</h2>
+        <p>
+            Para obtener la información de las recetas utilizamos la API pública de 
+            <a href="https://www.themealdb.com/api.php" target="_blank">TheMealDB</a>, específicamente el siguiente endpoint:
+        </p>
+        <code>https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata</code>
+        <p>
+            Esta API nos permite acceder a una base de datos de comidas del mundo, mostrando imágenes, ingredientes e instrucciones. 
+            Su integración fue clave para mantener el contenido actualizado de manera automática.
+        </p>
+
+        <h2>Detalles Técnicos del Desarrollo</h2>
+        <ul>
+            <li><strong>Lenguajes utilizados:</strong> HTML, CSS y JavaScript.</li>
+            <li><strong>Estructura modular:</strong> cada sección fue desarrollada por un integrante y luego integrada en un mismo diseño.</li>
+            <li><strong>Diseño adaptable:</strong> mediante el uso de grid, flexbox y media queries.</li>
+            <li><strong>Estilos unificados:</strong> usando variables CSS (<code>:root</code>) para colores, márgenes y tipografía.</li>
+            <li><strong>Efectos interactivos:</strong> transiciones suaves y hover effects en tarjetas y enlaces.</li>
+        </ul>
+
+        <p>
+            En conjunto, este proyecto refleja nuestro aprendizaje, trabajo en equipo y pasión por la cocina. 
+            Esperamos que disfruten navegando por <strong>Delicias del Mundo</strong> tanto como nosotros disfrutamos creándolo.
+        </p>
+    </section>
+        </main>
+        <footer>
+          <div class="index-footer-content">
+            <p class="index-footer-names">
+                Desarrollado por: 
+                <span style="font-weight: 600;">Hugo Sosa</span>, 
+                <span style="font-weight: 600;">Eros López Vargas</span>, y
+                <span style="font-weight: 600;">Facundo Orlando</span>
+            </p>
+            <p class="index-footer-info">Recetas obtenidas mediante la <span class="index-footer-detail">API de The Meal DB</span>. Proyecto de Desarrollo Web 2025.</p>
+            <p>Trabajo Final realizado para ISTF N° 194</p>
+            <a href="https://github.com/Facundo41/TrabajoEvaluativo" target="_blank" class="index-footer-link" style="margin-top: 10px;">Ver Código Fuente en GitHub
+            </a>
+        </div>
+        </footer>
+    </body>
 </html>

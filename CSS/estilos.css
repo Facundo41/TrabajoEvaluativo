@@ -125,15 +125,19 @@ nav a:hover
     text-decoration: none;
 }
 
-main
-{
-    color: #000;
-    font-weight: 700;
-    flex: 1;
-    padding: 2rem 1rem;
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center; 
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.65); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 main img
@@ -142,6 +146,34 @@ main img
     border-radius: 1rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 10px(0,0,0,0.2);
+}
+main h1, main h2 {
+    color: var(--color-primary);
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+}
+
+main p, main li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-base);
+}
+
+main ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+main li {
+    margin-bottom: 1rem;
+}
+
+main code {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-family: "Courier New", monospace;
 }
 
 form label
