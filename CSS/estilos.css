@@ -249,7 +249,7 @@ button:hover
 
 footer
 {
-    background-image: url(/IMAGENES/imagenes/comidas.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/IMAGENES/imagenes/comidas.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -268,41 +268,4 @@ footer a
     text-decoration: underline;
 }
 
-@media (min-width: 768px)
-{
-    main img
-    {
-        max-width: 400px;
-    }
-}
 
-@media (min-width: 1024px)
-{
-    form
-    {
-        padding: 2,5rem;
-    }
-}
-
-@media (max-width: 600px) 
-{
-    .index-navegation 
-    {
-      flex-direction: column;
-      text-align: center;
-      padding: 0.5rem;
-    }
-  
-    .index-nav-list 
-    {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-  
-    .site-title-link 
-    {
-      font-size: 1.3rem;
-    }
-  }
-       

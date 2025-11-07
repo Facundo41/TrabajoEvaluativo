@@ -1,6 +1,6 @@
 :root {
-    --color-primary: #0300ca; 
-    --color-secondary: #ffffff; 
+    --color-primary: #e63946; 
+    --color-secondary: #f1faee; 
     --color-text-base: #1f2937; 
     --color-bg-base: #4381ffa4; 
     --color-white: #ffffff;
@@ -220,7 +220,7 @@ body::before {
 
 .index-footer {
     position: relative;
-    background-image: url(/IMAGENES/comidas.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/IMAGENES/comidas.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -263,32 +263,79 @@ body::before {
 
 
 
+@media (min-width: 768px) {
+    main img {
+        max-width: 400px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/*
+Reglas para Escritorio (ancho de 1024px o más)
+*/
+@media (min-width: 1024px) {
+    form {
+        padding: 2.5rem; 
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .index-page-title {
+        font-size: 3.5rem; 
+    }
+}
+
+
+/*
+Reglas Adicionales para Móviles MUY PEQUEÑOS para aplicar ajustes específicos a pantallas
+que son más estrechas que un móvil estándar
+*/
 @media (max-width: 600px) { 
+    .index-header {
+        min-height: 120px; 
+        padding: var(--space-md) 0;
+    }
 
     .index-navegation {
         flex-direction: column; 
         text-align: center;
-        padding: 0.5rem 0; 
+        padding: 0.5rem 0;
+        background-color: rgba(255, 255, 255, 0.95);
     }
     
     .site-title-link {
-        margin-bottom: 0.5rem;
+        font-size: 1.3rem; 
+        margin-bottom: 0.5rem; 
     }
+
     .index-nav-list {
         flex-wrap: wrap; 
         justify-content: center;
         width: 100%;
         margin-top: 0.5rem;
         margin-left: 0;
+        gap: 1rem;
     }
+
     .index-nav-item {
         margin: 0.5rem 0.5rem;
     }
+    
     .cards-grid {
         grid-template-columns: 1fr;
     }
     
     .index-page-title {
         font-size: 2rem;
+    }
+    
+    .index-footer {
+        padding: var(--space-md) var(--space-sm); 
     }
 }
