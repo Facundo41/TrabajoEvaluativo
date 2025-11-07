@@ -1,11 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Web - Contacto</title>
-</head>
-<body>
-    
-</body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/CSS/styles.css">
+        <link rel="stylesheet" href="/CSS/estilos.css">
+        <title>Contacto | The Meal DB</title>
+    </head>
+    <body>
+        <header class="index-header">
+            <nav class="index-navegation">
+                <a href="index.html" class="site-title-link">Recetas del Mundo</a>
+                <ul class="index-nav-list">
+                    <li class="index-nav-item"><a href="./index.html" class="index-nav-link">Inicio</a></li>
+                    <li class="index-nav-item"><a href="./contacto.html" class="index-nav-link">Contacto</a></li>
+                    <li class="index-nav-item"><a href="./about.html" class="index-nav-link">Acerca de nosotros</a></li>
+                </ul>
+        </header>
+
+        <main>
+            <h1>Contáctanos</h1>
+            <p class="subtitulo">¿Tienes una receta que quieras compartir o alguna consulta? ¡Escríbenos!</p>
+            
+            <img src="/IMAGENES/imagenes/comidaSuave.jpg" alt="Imagen temática de cocina.">
+
+            <form id="formContacto">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Correo@gmail.com">
+
+                <label for="asunto">Asunto *</label>
+                <input for="asunto" id="asunto" name="asunto" placeholder="Deje su mensaje">
+
+                <label for="motivo">Motivo del contacto</label>
+                <select id="motivo" name="motivo">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Sugerencia">Sugerencia de receta</option>
+                    <option value="error">Error en una receta</option>
+                    <option value="Colaboración">Colaboración</option>
+                </select>
+
+                <div class="radio-group">
+                    <label>Tipo de Usuario</label><br>
+                    <label><input type="radio" name="tipo" value="Chef">Chef Profesional</label>
+                    <label><input type="radio" name="tipo" value="Aficionado">Aficionado</label>
+                    <label><input type="radio" name="tipo" value="Visitante Curioso">Visitante Curioso</label>
+                </div>
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+                <div style="display: flex; gap:1rem;">
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Limpiar</button>
+                </div>
+            </form>
+        </main>
+        <script src="/JAVASCRIPT/validaciones.js"></script>
+        <footer>
+            <p>Desarrollado por: Hugo, Facundo, Eros</div></div></div>
+            <br></br>
+            <p>Trabajo Final realizado para ISTF N° 194</p>
+        </footer>
+    </body>
 </html>
