@@ -41,6 +41,12 @@ const form = document.getElementById("formContacto");
             return;
         }
 
+        if(!tipo)
+        {
+            alert("Por favor, seleccione su tipo de usuario (Chef, Aficionado, etc.).");
+            return;
+        }
+
         alert("¡Mensaje enviado correctamente! Gracias por contactarnos.");
         form.reset();
 
