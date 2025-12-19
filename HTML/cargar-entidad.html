@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Web - Inicio</title>
-    <link rel="stylesheet" href="/CSS/estilos.css">
+    <title>Cargar Nueva Receta | The Meal DB</title>
     <link rel="stylesheet" href="../CSS/styles.css"> 
 </head>
 <body class="index-background">
+
     <header class="index-header">
         <nav class="index-navegation">
             <a href="index.html" class="site-title-link">Recetas del Mundo</a>
             <ul class="index-nav-list">
+                <li class="index-nav-item"><a href="./index.html" class="index-nav-link">Inicio</a></li>
                 <li class="index-nav-item"><a href="./contacto.html" class="index-nav-link">Contacto</a></li>
                 <li class="index-nav-item"><a href="./about.html" class="index-nav-link">Acerca de nosotros</a></li>
-                <li class="index-nav-item"><a href="./cargar-entidad.html" class="index-nav-link">Cargar nueva receta</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="index-content">
         <div class="index-container">
-            <h1 class="index-page-title" style="margin-bottom: 2rem;">Recetas de Pescados y Mariscos (The Meal DB)</h1>
-            <div id="cards-container" class="cards-grid">
-                <div id="loading-state" class="loading-state">
-                    <span class="loading-spinner"></span> Cargando deliciosas recetas...
-                </div>
-            </div>
+            <h1 class="index-page-title">Cargar Nueva Receta Local</h1>
+            
+            <form id="formCargaReceta" class="form-carga-container">
+                
+                <p id="mensajeError" class="mensaje-error"></p>
+                
+                <label for="inputNombre">Nombre de la Receta:</label>
+                <input type="text" id="inputNombre" class="input-form-receta input-margin-small" placeholder="Ej: Rabas a la Romana" required>
+                
+                <label for="inputImagenUrl">URL de la Imagen (opcional):</label>
+                <input type="text" id="inputImagenUrl" class="input-form-receta input-margin-large" placeholder="https://enlace-de-la-foto.com/imagen.jpg">
+                
+                <button type="submit" class="btn-guardar-receta">
+                    Guardar Receta
+                </button>
+            </form>
         </div>
     </main>
 
@@ -40,10 +50,10 @@
             </p>
             <p class="index-footer-info">Recetas obtenidas mediante la <span class="index-footer-detail">API de The Meal DB</span>. Proyecto de Desarrollo Web 2025.</p>
             <p>Trabajo Final realizado para ISTF N° 194</p>
-            <a href="https://github.com/Facundo41/TrabajoEvaluativo" target="_blank" class="index-footer-link" style="margin-top: 10px;">Ver Código Fuente en GitHub
-            </a>
+            <a href="https://github.com/Facundo41/TrabajoEvaluativo" target="_blank" class="index-footer-link">Ver Código Fuente en GitHub</a>
         </div>
     </footer>
-    <script type="module" src="../JAVASCRIPT/script.js"></script>
+
+    <script type="module" src="../JAVASCRIPT/cargar.js"></script> 
 </body>
 </html>

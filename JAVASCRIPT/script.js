@@ -1,14 +1,11 @@
-// URL de la API para obtener recetas de la categoría 'Seafood'
+import { EntidadService } from "./entidadService.js"; 
+
 const API_URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
-
-
 const cardsContainer = document.getElementById('cards-container');
 const loadingState = document.getElementById('loading-state');
-function setContent(contentHtml, isError = false) {
-    cardsContainer.innerHTML = contentHtml;
-}
 
-function createMealCard(meal) {
+
+function createApiMealCard(meal) { 
     return `
         <div class="api-card">
             <img 
@@ -24,49 +21,60 @@ function createMealCard(meal) {
                         <strong>ID:</strong> ${meal.idMeal}
                     </p>
                 </div>
-                <!-- Enlace de ejemplo, asume que una página de detalle podría usar el ID -->
                 <a href="https://www.themealdb.com/meal/${meal.idMeal}" target="_blank" class="index-nav-link" style="align-self: flex-start; margin-top: 1rem; border-bottom: 2px solid var(--color-primary); color: var(--color-primary);">
-                    Ver Detalles
+                    Ver Detalles (API)
                 </a>
             </div>
         </div>
     `;
 }
 
+// Función auxiliar para inyectar HTML
+function setContent(contentHtml, isError = false) {
+    cardsContainer.innerHTML = contentHtml;
+}
+
+
 async function loadSeafoodMeals() {
+    
+    // Muestra el estado de carga
     const spinnerHtml = loadingState ? loadingState.outerHTML : 
         `<div class="loading-state"><span class="loading-spinner"></span> Cargando deliciosas recetas...</div>`;
     cardsContainer.innerHTML = spinnerHtml;
 
+    // 1. OBTENER DATOS DE LA API (Tu lógica existente)
+    let apiMealsHtml = '';
     try {
         const response = await fetch(API_URL);
-        if (!response.ok) {
-            throw new Error(`Error de red: ${response.status} ${response.statusText}`);
-        }
-
         const data = await response.json();
-        const meals = data.meals;
-
-        if (!meals || meals.length === 0) {
-            setContent(`
-                <div class="loading-state" style="border: none; color: var(--color-detail);">
-                    No se encontraron recetas de Seafood.
-                </div>
-            `);
-            return;
-        }
-        const mealsHtml = meals.map(createMealCard).join('');
-        setContent(mealsHtml);
+        const apiMeals = data.meals || [];
+        
+        // Mapea los resultados de la API a su HTML
+        apiMealsHtml = apiMeals.map(createApiMealCard).join('');
     } 
     catch (error) {
-        console.error("Error al cargar las recetas:", error);
-        
-        setContent(`
-            <div class="error-state">
-                Hubo un error al conectar con la API: ${error.message}. Por favor, inténtelo de nuevo.
-            </div>
-        `, true);
+        // En caso de error de API, seguimos, pero mostramos el error.
+        apiMealsHtml = `<div class="error-state">Error de API: ${error.message}. Mostrando solo datos locales.</div>`;
     }
+
+    // 2. OBTENER DATOS DE LOCALSTORAGE (CRUCIAL para la consigna)
+    // Llama al servicio para obtener la lista de recetas locales
+    const localRecetas = EntidadService.list(); 
+    
+    // Mapea las entidades locales a HTML usando el método toHTML() del Modelo
+    const localCardsHtml = localRecetas.map(receta => receta.toHTML()).join('');
+    
+    
+    // 3. COMBINAR Y RENDERIZAR
+    // Concatenamos el HTML de la API con el HTML de las recetas locales
+    const allCardsHtml = apiMealsHtml + localCardsHtml;
+
+    if (allCardsHtml.trim() === '') {
+        setContent(`<div class="loading-state">No se encontraron recetas.</div>`);
+        return;
+    }
+
+    setContent(allCardsHtml);
 }
 
 document.addEventListener('DOMContentLoaded', loadSeafoodMeals);

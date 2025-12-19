@@ -11,7 +11,7 @@
     --space-lg: 2rem; 
     --border-radius-card: 12px;
     --shadow-card: 0 10px 15px -3px rgba(0, 204, 255, 0.671), 0 4px 6px -2px rgba(0, 0, 0, 0.205);
-    }
+}
 
 *, *::before, *::after {
     box-sizing: border-box; 
@@ -20,7 +20,6 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
     font-family: 'Inter', sans-serif; 
     line-height: 1.6;
     color: var(--color-text-base); 
@@ -29,7 +28,7 @@ body {
     flex-direction: column;
     overflow-x: hidden;
     position: relative;
-    background-image: url(/IMAGENES/deTodo.jpg);
+    background-image: url(../IMAGENES/deTodo.jpg);
     background-attachment: fixed;
     background-size: cover; 
     background-repeat: no-repeat; 
@@ -46,6 +45,55 @@ body::before {
     background-color: rgba(255, 255, 255, 0.3); 
     z-index: -1; 
 }
+
+/* --- NUEVA PAGINA: CARGA DE ENTIDAD --- */
+.form-carga-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mensaje-error {
+    color: var(--color-error); /* Usamos la variable de error */
+    font-weight: bold;
+    margin-bottom: 15px;
+    min-height: 1.2em;
+}
+
+.input-form-receta {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-margin-small {
+    margin-bottom: 15px;
+}
+
+.input-margin-large {
+    margin-bottom: 20px;
+}
+
+.btn-guardar-receta {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-guardar-receta:hover {
+    filter: brightness(1.1);
+}
+
+
+
 
 .index-container {
     max-width: 1200px; 
@@ -146,6 +194,7 @@ body::before {
     padding-top: var(--space-lg);
 }
 
+
 .api-card {
     background-color: var(--color-white);
     border-radius: var(--border-radius-card);
@@ -155,6 +204,7 @@ body::before {
     height: 100%; 
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .api-card:hover {
     transform: translateY(-5px); 
@@ -218,9 +268,39 @@ body::before {
     100% { transform: rotate(360deg); }
 }
 
+
+.api-card.local-card { 
+    background-color: var(--color-secondary); 
+    box-shadow: var(--shadow-card);
+}
+
+/* 2. Estilo para el título de la tarjeta local */
+.api-card.local-card .card-title {
+    color: var(--color-primary); /* Título en verde oscuro */
+}
+
+/* 3. Sello o Etiqueta para indicar el origen */
+.api-card.local-card::after {
+    content: "CARGA LOCAL";
+    display: block;
+    position: absolute;
+    top: 15px; /* Pequeño desplazamiento desde la esquina superior */
+    right: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 4px;
+    z-index: 5;
+    text-shadow: none;
+    letter-spacing: 0.5px;
+    transform: rotate(5deg); /* Le da un toque más dinámico */
+}
+
 .index-footer {
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/IMAGENES/comidas.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../IMAGENES/comidas.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
